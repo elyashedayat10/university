@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     #local
     'account.apps.AccountConfig',
     'config.apps.ConfigConfig',
+    'student.apps.StudentConfig',
 
 
     #third_apps
