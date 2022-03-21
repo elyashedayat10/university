@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'config.apps.ConfigConfig',
     'student.apps.StudentConfig',
+    'master.apps.MasterConfig'
 
 
     #third_apps
