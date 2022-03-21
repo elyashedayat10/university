@@ -22,7 +22,7 @@ class UserCreateForm(forms.ModelForm):
         return password2
 
     def save(self, commit=True):
-        user = super(CreateForm, self).save(commit=False)
+        user = super(UserCreateForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password"])
         if commit:
             user.save()
@@ -35,3 +35,20 @@ class UserChangeForm(forms.ModelForm):
     class Meta:
         model = user
         fields = ("national_code", "name", "family", "password")
+
+
+class AdminForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = user
+        fields = ("national_code", "name", "family", "password")
+    # password = forms.CharField(widget=forms.PasswordInput, label='رمز عبور')
+    # national_code = forms.CharField(widget=forms.TextInput, label='کد ملی')
+    # name = forms.CharField(widget=forms.TextInput, label='نام')
+    # family = forms.CharField(widget=forms.TextInput, label='نام خانوادگی')
+
+
+class LoginForm(forms.Form):
+    national_code = forms.CharField(widget=forms.TextInput, label="کد ملی")
+    password = forms.CharField(widget=forms.PasswordInput, label='رمزعبور')
